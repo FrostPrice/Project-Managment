@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.title--main {
+  margin: 45px 0;
+  padding-right: 30px;
+}

@@ -1,0 +1,26 @@
+.add-new-project {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* width: 350px; */
+}
+
+.btn--submit {
+  margin: 20px 0;
+
+  color: white;
+  background-color: rgb(48, 48, 48);
+  border: none;
+  border-radius: 20px;
+}
+
+.btn--submit:hover {
+  background-color: rgba(163, 163, 163, 0.5);
+  color: rgb(27, 27, 27);
+
+  /* border-bottom: 2px solid rgb(109, 102, 102); */
+}
+
+.btn--submit:active {
+  background-color: rgba(48, 48, 48, 0.5);
+}

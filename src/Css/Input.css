@@ -1,0 +1,21 @@
+.title {
+  padding: 9px 0;
+}
+
+.text-input {
+  /* width: 370px; */
+  width: 80%;
+  height: 30px;
+
+  padding-left: 5px;
+  margin-bottom: 10px;
+
+  outline: none;
+  border: 1px solid rgba(51, 51, 51, 0.459);
+  border-radius: 3px;
+}
+
+.checkbox {
+  width: 25px;
+  height: 25px;
+}
