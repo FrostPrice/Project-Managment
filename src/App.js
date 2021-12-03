@@ -74,6 +74,7 @@ function App() {
       : console.warn("Please add a new value");
   };
 
+  // Change state of the priority
   const togglePriority = (currentValue, newValue) => {
     return (currentValue = { ...currentValue, priority: newValue });
   };
@@ -88,12 +89,19 @@ function App() {
     if (!element) return; // Guard Clause
 
     // Change Name, Description or priority dinamically
-    if (element.id === `id-name--${id}`)
+    if (element.id === `id-name--${id}`) {
       updProject = await editName(projectFromServer, newValue);
+    }
     if (element.id === `id-description--${id}`)
       updProject = await editDescription(projectFromServer, newValue);
     if (element.id === `id-priority--${id}`)
       updProject = await togglePriority(projectFromServer, newValue);
+
+    // Guard Clause
+    if (!updProject) {
+      alert("Please, add a value to the input");
+      return;
+    }
 
     // Send it to the server
     const request = await fetch(`http://localhost:5000/projects/${id}`, {
@@ -129,13 +137,21 @@ function App() {
       <h2>
         Total Projects: <span>{projects.length}</span>
       </h2>
-      <ProjectsContainer
-        projects={projects}
-        editValue={editValue}
-        showEditField={showEditField}
-        setObjEditField={setObjEditField}
-        deleteProject={deleteProject}
-      />
+      <hr className="line" />
+      {projects.length > 0 ? (
+        <ProjectsContainer
+          projects={projects}
+          editValue={editValue}
+          showEditField={showEditField}
+          setObjEditField={setObjEditField}
+          deleteProject={deleteProject}
+        />
+      ) : (
+        <h3 className="title--no-projects">
+          Well, now it's the time to relax... <br />
+          Maybe sip a cup of coffee? ;)
+        </h3>
+      )}
     </div>
   );
 }

@@ -3,20 +3,20 @@
     {
       "id": 1,
       "name": "Projeto Um",
-      "description": "Changed Description",
+      "description": "Descrição do Projeto Um",
       "priority": false
     },
     {
       "id": 2,
       "name": "Projeto Dois",
       "description": "Descrição do Projeto Dois",
-      "priority": true
+      "priority": false
     },
     {
       "id": 3,
-      "name": "Changed name of project 3",
+      "name": "Projeto Três",
       "description": "Descrição do Projeto Três",
-      "priority": false
+      "priority": true
     }
   ]
 }

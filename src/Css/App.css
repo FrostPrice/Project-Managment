@@ -4,6 +4,15 @@
   grid-template-columns: 38%;
 }
 
+.line {
+  margin: 10px 0;
+}
+
+.title--no-projects {
+  margin: 50px 0;
+  text-align: center;
+}
+
 /* HELPER STYLES */
 
 .btn--black {

@@ -1,0 +1,27 @@
+.container--edit {
+  display: flex;
+  justify-content: space-around;
+}
+
+.text--edit-value {
+  padding: 0 0 5px 0;
+}
+
+.btn--confirm {
+  height: 30px;
+  margin: 0 2px;
+  padding: 0 5px;
+  background-color: rgb(107, 241, 163);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn--confirm:hover {
+  background-color: rgb(27, 245, 118);
+}
+
+.btn--confirm:active {
+  background-color: rgb(51, 139, 88);
+}

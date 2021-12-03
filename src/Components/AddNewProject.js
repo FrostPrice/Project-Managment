@@ -12,6 +12,7 @@ function AddNewProject({ addProject, setBoolAddProject }) {
     event.preventDefault();
 
     if (!name || !description) {
+      alert("Please, fill the required fields!");
       return;
     }
 
