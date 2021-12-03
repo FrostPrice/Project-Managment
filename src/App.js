@@ -64,27 +64,36 @@ function App() {
 
   // Edit name and description
   const editName = (currentValue, newValue) => {
-    return (currentValue = { ...currentValue, name: newValue });
+    return newValue
+      ? (currentValue = { ...currentValue, name: newValue })
+      : console.warn("Please add a new value");
   };
   const editDescription = (currentValue, newValue) => {
-    return (currentValue = { ...currentValue, description: newValue });
+    return newValue
+      ? (currentValue = { ...currentValue, description: newValue })
+      : console.warn("Please add a new value");
+  };
+
+  const togglePriority = (currentValue, newValue) => {
+    return (currentValue = { ...currentValue, priority: newValue });
   };
 
   // Main Function that changes the data inside the State and on the DataBase
   const editValue = async ({ id, newValue, element }) => {
     let updProject;
 
-    // Get what element is to be changed (Name or Description)
-    if (!newValue || !element) return; // Guard Clause
-
     // Get selected Project from server and update locally
     const projectFromServer = await fetchProject(id);
 
-    // Change Name or Description dinamically
+    if (!element) return; // Guard Clause
+
+    // Change Name, Description or priority dinamically
     if (element.id === `id-name--${id}`)
       updProject = await editName(projectFromServer, newValue);
     if (element.id === `id-description--${id}`)
       updProject = await editDescription(projectFromServer, newValue);
+    if (element.id === `id-priority--${id}`)
+      updProject = await togglePriority(projectFromServer, newValue);
 
     // Send it to the server
     const request = await fetch(`http://localhost:5000/projects/${id}`, {
@@ -101,7 +110,6 @@ function App() {
     );
 
     setObjEditField({ id: id, edit: false });
-    console.log(showEditField);
   };
 
   return (
@@ -118,6 +126,9 @@ function App() {
       ) : (
         ""
       )}
+      <h2>
+        Total Projects: <span>{projects.length}</span>
+      </h2>
       <ProjectsContainer
         projects={projects}
         editValue={editValue}
@@ -131,6 +142,8 @@ function App() {
 
 export default App;
 /*
+ TEST DATA
+
 {
   "id": 1,
   "name": "Projeto Um",
@@ -149,4 +162,5 @@ export default App;
   "description": "Descrição do Projeto Três",
   "priority" : true
 }
+
 */

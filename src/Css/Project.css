@@ -14,6 +14,12 @@
   border-bottom: 5px solid rgba(253, 66, 66, 0.849);
 }
 
+.buttons--container {
+  display: flex;
+  width: 20%;
+  justify-content: space-between;
+}
+
 .btn--project-done {
   cursor: pointer;
   border: none;
@@ -33,4 +39,60 @@ h3 {
 
 p {
   cursor: pointer;
+}
+
+/* Rounded Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 32px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 5px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: rgba(253, 66, 66, 0.849);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgba(253, 66, 66, 0.849);
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

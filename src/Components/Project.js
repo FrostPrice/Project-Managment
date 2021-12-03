@@ -14,6 +14,7 @@ function Project({
   deleteProject,
 }) {
   const [currentElement, setCurrentElement] = useState();
+  const [boolPriority, setBoolPriority] = useState(!priority);
 
   const clickedElement = (e) => {
     setObjEditField({ id: id, edit: true });
@@ -41,10 +42,31 @@ function Project({
             {description}
           </p>
         </div>
-        <div>a</div>
-        <button className="btn--project-done" onClick={() => deleteProject(id)}>
-          <SvgDone />
-        </button>
+
+        <div className="buttons--container">
+          <label className="switch">
+            <input
+              id={`id-priority--${id}`}
+              type="checkbox"
+              checked={!boolPriority}
+              onChange={(event) => {
+                editValue({
+                  id: id,
+                  newValue: boolPriority,
+                  element: event.target,
+                });
+                setBoolPriority(!boolPriority);
+              }}
+            />
+            <span className="slider round"></span>
+          </label>
+          <button
+            className="btn--project-done"
+            onClick={() => deleteProject(id)}
+          >
+            <SvgDone />
+          </button>
+        </div>
       </div>
       {showEditField.id === id && showEditField.edit === true ? (
         <EditInput

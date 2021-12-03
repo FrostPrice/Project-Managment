@@ -11,7 +11,7 @@ function EditInput({ id, editValue, currentElement }) {
         className={"input--default"}
         placeholder={`Change the Project ${
           currentElement.id === `id-name--${id}` ? "Name" : "Description"
-        }`}
+        }. Press ENTER to confirm`}
         onChange={(event) => setValue(event.target.value)}
         onKeyPress={(event) =>
           event.key === "Enter"
